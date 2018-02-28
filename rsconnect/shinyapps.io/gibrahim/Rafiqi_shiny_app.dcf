@@ -1,0 +1,12 @@
+name: Rafiqi_shiny_app
+title: Rafiqi_shiny_app
+username:
+account: gibrahim
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 290510
+bundleId: 1245749
+url: https://gibrahim.shinyapps.io/Rafiqi_shiny_app/
+when: 1519853146.65766
+asMultiple: FALSE
+asStatic: FALSE
