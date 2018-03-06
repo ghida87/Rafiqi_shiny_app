@@ -7,31 +7,27 @@ Below is the main reasoning behind the decision tree (most of the possible scena
 ------------------------------------------------------------------------------------------------------------------------------
 If refugee is an entrepreneur ->  CHOICE 1: match to entrepreneurship and incubation related opportunities in location
 
-If none is found in location --> CHOICE 2: match to online programs related to entrepreneurship and incubation
+If none is found in location -> CHOICE 2: match to online programs related to entrepreneurship and incubation
 
-If refugee is looking for a job -> if his/her level of job readiness is high -> 
-if language level inline with job requirements ->CHOICE 3: match to jobs in location that require a similar work background 
+If refugee is looking for a job -> if his/her level of job readiness is high -> if language level inline with job requirements ->CHOICE 3: match to jobs in location that require a similar work background 
      
- if no onsite jobs founds -->if english level and digital level are high enough -->
-     CHOICE 4: match to online jobs that require a similar work background
+ if no onsite jobs founds ->if english level and digital level are high enough ->CHOICE 4: match to online jobs that require a similar work background
            
-   if no related online jobs found --> if refugee has at least a bachelor degree --> 
-   CHOICE 5: match to trainings or graduate degrees in location in domains considered as the closest to his/her background
+   if no related online jobs found --> if refugee has at least a bachelor degree -> CHOICE 5: match to trainings or graduate degrees in location in domains considered as the closest to his/her background
                     
-                    
-  if no onsite trainings in a domain close to refugee background found -->
-                    CHOICE 6: match to onsite trainings with basic entry level in popular domains (domains where there is demand)
+  if no onsite trainings in a domain close to refugee background found ->
+         CHOICE 6: match to onsite trainings with basic entry level in popular domains (domains where there is demand)
                          
                          
-   if no onsite trainings found -->
-                          CHOICE 7: match to online trainings closest to refugee work/study background
+   if no onsite trainings found ->
+         CHOICE 7: match to online trainings closest to refugee work/study background
                               
                               
-   if no online trainings close to background found -->
-                              CHOICE 8: match to online trainings with basic entry requirements and high popularity
+   if no online trainings close to background found ->
+        CHOICE 8: match to online trainings with basic entry requirements and high popularity
                               
 
-if refugee is looking for job  -->
+if refugee is looking for job->
 if job readiness is low ->
 Go to CHOICE 5 directly and proceed from there
 
