@@ -13,7 +13,7 @@ If refugee is looking for a job -> if his/her level of job readiness is high -> 
      
  if no onsite jobs founds ->if english level and digital level are high enough ->CHOICE 4: match to online jobs that require a similar work background
            
-   if no related online jobs found --> if refugee has at least a bachelor degree -> CHOICE 5: match to trainings or graduate degrees in location in domains considered as the closest to his/her background
+   if no related online jobs found -> if refugee has at least a bachelor degree -> CHOICE 5: match to trainings or graduate degrees in location in domains considered as the closest to his/her background
                     
   if no onsite trainings in a domain close to refugee background found ->
          CHOICE 6: match to onsite trainings with basic entry level in popular domains (domains where there is demand)
