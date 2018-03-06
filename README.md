@@ -1,5 +1,5 @@
 
-The Rafiqi matching algo consists of a decision tree taking elements of refugee data such as refugee location, work/study background,
+//The Rafiqi matching algo consists of a decision tree taking elements of refugee data such as refugee location, work/study background,
 language and digital level as tree nodes and different opportunities such as jobs, trainings, university degrees as tree leaves.
 The tree is currently hard coded and reflects a logic inspired by on-the-ground experiments. However, the long term goal
 is to feed feedbacks from matchings happening through the platform to the algo and make it dynamic and self-shaped.
