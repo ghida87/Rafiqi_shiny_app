@@ -1,4 +1,3 @@
-# Rafiqi_matching_algo
 
 The Rafiqi matching algo consists of a decision tree taking elements of refugee data such as refugee location, work/study background,
 language and digital level as tree nodes and different opportunities such as jobs, trainings, university degrees as tree leaves.
@@ -6,10 +5,10 @@ The tree is currently hard coded and reflects a logic inspired by on-the-ground 
 is to feed feedbacks from matchings happening through the platform to the algo and make it dynamic and self-shaped.
 Below is the main reasoning behind the decision tree (most of the possible scenarios are covered):
 
----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 If refugee is an entrepreneur -> 
 CHOICE 1: match to entrepreneurship and incubation related opportunities in location
-       If none is found in location -->
+        If none is found in location -->
        CHOICE 2: match to online programs related to entrepreneurship and incubation
 
 If refugee is looking for a job -> 
@@ -50,7 +49,7 @@ CHOICE 12: match to bachelor degree programs in location
    CHOICE 13: match to online universities
    
    
-   -----------------------------------------------------------------------------------------------------------------------------
+   --------------------------------------------------------------------------------------------------------------------------
  
   
  
