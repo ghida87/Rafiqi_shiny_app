@@ -1,7 +1,9 @@
 library(dplyr)
-all_opportunities <- read.csv("Opportunities.csv", header=T,fill=T)
+all_opportunities <- read.csv("Opportunities_2.csv", header=T,fill=T)
 clusters_distances <- read.csv("Clusters_matrix.csv", header = FALSE, fill = T)
 colnames(clusters_distances) <- rownames(clusters_distances)
+#record_table <- data.frame(ncol(9))
+
 
 
 
@@ -13,13 +15,12 @@ match_applicant <- function(loc,background,is_entrepreneur,top_degree,job_readin
   else {
     best_opportunities <- all_opportunities[all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Category == 'Job' & all_opportunities$Mode.of.Delivery != 'online' & all_opportunities$Cluster.nb == background & all_opportunities$Level <= job_readiness_level,]
     if (dim(best_opportunities)[1]  > 0) {
-      print("job found in location!")
       if (dim(best_opportunities[best_opportunities$local_lan_requirements <= local_lan_level & best_opportunities$en_requirements <= english_level,])[1]>0){
         print("job found in location!")
         }
       else{
         print("applicant can find a job locally if he/she enhances his/her language skills") 
-        best_opportunities <- all_opportunities[all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Theme %in% c('integration','language education','English education'),]
+        best_opportunities <- all_opportunities[all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Theme %in% c('integration','language education'),]
       }
     }
     else{
@@ -66,7 +67,7 @@ find_trainings <- function(loc,background,english_level,digital_level,local_lan_
   best_training_opportunities <- NULL
   onsite_training_opportunities <- all_opportunities[all_opportunities$Category != 'Job' & all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Mode.of.Delivery != 'online' & all_opportunities$Theme != 'entrepreneurship and incubation',]
   if (dim(onsite_training_opportunities)[1] > 0) {
-    if (dim(onsite_training_opportunities[onsite_training_opportunities$en_requirements <= english_level & best_training_opportunities$local_lan_requirements <= local_lan_level,])[1]>0) {
+    if (dim(onsite_training_opportunities[onsite_training_opportunities$en_requirements <= english_level & onsite_training_opportunities$local_lan_requirements <= local_lan_level,])[1]>0) {
       print("training opportunity found in location!")
       best_training_opportunities <- onsite_training_opportunities[distance(as.vector(onsite_training_opportunities$Cluster.nb),background) <= 0.2 & onsite_training_opportunities$Level != 1,]
       if (dim(best_training_opportunities)[1] > 0){
@@ -75,7 +76,7 @@ find_trainings <- function(loc,background,english_level,digital_level,local_lan_
       else{
         best_training_opportunities <- onsite_training_opportunities[onsite_training_opportunities$Level == 1 & onsite_training_opportunities$Category != 'University Degree',]
         print("trainings in different domains but with basic entry requirements are suggested")
-        if (length(unique(best_training_opportunities$Theme)) == 1 & unique(best_training_opportunities$Theme) == 'integration'){
+        if (unique(best_training_opportunities$Theme) == 'integration'){
           complementary_trainings <- find_online_trainings(background)
           best_training_opportunities <- rbind(best_training_opportunities,complementary_trainings)
         }
@@ -83,7 +84,7 @@ find_trainings <- function(loc,background,english_level,digital_level,local_lan_
     }
     else{
       print("applicant can find a training locally if he/she enhances his/her language skills") 
-      best_training_opportunities <- all_opportunities[all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Theme %in% c('integration','language education','English education'),]
+      best_training_opportunities <- all_opportunities[all_opportunities$Country %in% c(loc,'Global') & all_opportunities$Theme %in% c('integration','language education'),]
     }
   }
   else {
@@ -142,15 +143,15 @@ print_results <- function(opportunities_table){
       cat("\n")
       i <- i+1
     }
-    cat("if you have any questions or if you need a mentor to guide you through the application process, please feel free to reach out to us at contact@rafiqi.net")
+    cat("if you have questions or need a mentor to guide you through the application process, contact us at contact@rafiqi.net")
   }
 }
 
 
 transform_country_input <- function(country){
-  if (country == 1) {return("Germany")}
+  if (country == 1) {return("Netherlands")}
   if (country == 2) {return("France")}
-  if (country == 3) {return("Netherlands")}
+  if (country == 3) {return("Germany")}
   if (country == 4) {return("Jordan")}
   if (country == 5) {return("Switzerland")}
   if (country == 6) {return("UK")}
@@ -168,7 +169,7 @@ transform_degree_input <- function(degree){
 }
 
 transform_entrepreneur_input <- function(entrepreneur){
-  if (entrepreneur== 1) {return(1)}
+  if (entrepreneur== TRUE) {return(1)}
   else {return(0)}
 }
 
@@ -178,6 +179,10 @@ process_inputs <- function(country,degree,entrepreneur,background_id,job_readine
   new_degree <- transform_degree_input(degree)
   new_entrepreneur <- transform_entrepreneur_input(entrepreneur)
   match_applicant(new_country,background_id, new_entrepreneur ,new_degree,job_readiness,en_level,digital,loc_language_level)
-
 }
+
+#collect_record <- function(country,degree,entrepreneur,background_id,job_readiness, en_level,loc_language_level,digital,feedback){
+ # new_record <- c(country,degree,entrepreneur,background_id,job_readiness, en_level,loc_language_level,digital,feedback)
+#  record_table <- rbind(record_table,new_record)
+ #}
 

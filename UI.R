@@ -1,24 +1,23 @@
 library(shiny)
 
-
 shinyUI(
   
   fluidPage(
     
+    
     sidebarPanel(
         
-        selectInput("country", label = h5("Current country of Residence"), 
-                    choices = list("Germany" = 1, "France" = 2, "Netherlands" = 3, "Jordan" = 4, "Switzerland" = 5, "UK" = 6, "Sweden" = 7, "Spain" = 8, "Denmark" = 9), 
+      textInput("email", label = h5("Email address"), value = " "),  
+      selectInput("country", label = h5("Current country of Residence"), 
+                    choices = list("Netherlands" = 1, "France" = 2, "Germany" = 3, "Jordan" = 4, "Switzerland" = 5, "UK" = 6, "Sweden" = 7, "Spain" = 8, "Denmark" = 9), 
                     selected = 1),
         
-        # Copy the line below to make a set of radio buttons
+        
         radioButtons("degree", label = h5("Highest degree obtained"),
                      choices = list("Bachelor" = 1, "Associate degree/certificate" = 2, "Masters or higher" = 3,"I do not have any degrees" = 4), 
                      selected = 1),
         
-        radioButtons("entrepreneur", label = h5("Are you an existing or aspiring entrepreneur"),
-                     choices = list("YES" = 1, "NO" = 2), 
-                     selected = 1),
+        checkboxInput("entrepreneur", label = h5("I am an existing or aspiring entrepreneur"), value = TRUE),
         
         
         selectInput("background", label = h5("Which of the followings describe the best your education and/or work background?"),
@@ -46,11 +45,21 @@ shinyUI(
         
     ),
         mainPanel(
-          verbatimTextOutput("value")
+          verbatimTextOutput("value"),
+          conditionalPanel(condition = "output.value",
+          radioButtons("rating", label = h3("Rate this output"),
+                       choices = list("Useful" = 1, "I already knew of these opportunities" = 2, "Not useful at all" = 3), 
+                       selected = 1),
+          conditionalPanel( condition = "input.rating",
+                            actionButton("submit", label = "submit rating"))
           
         )
-      ) 
+      )
+    
+    
       
-)     
+      
+) 
+)
       
 
